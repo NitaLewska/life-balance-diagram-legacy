@@ -16,7 +16,7 @@ $(document).ready(function() {
   
   //обработка перемещения слайдера
   $('.easyui-slider').slider({
-    onSlideEnd:function(){
+    onChange:function(){
       createDiagram();      
     }
   })
