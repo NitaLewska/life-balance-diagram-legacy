@@ -1,0 +1,191 @@
+﻿<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+  <title>Колесо Баланса</title>
+  <meta name="description"
+    content='Инструмент разработан специально в помощь коучам, и их клиентам для более простой визуализации основного коученгового элемента - "
+    Колесо".'>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="easyui.css">
+  <link rel="stylesheet" type="text/css" href="icon.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.easyui.min.js"></script>
+  <script src="scrypt.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <div class="title">
+        <h1 id="lblNameRing"> Колесо жизни </h1>
+      </div>
+    </header>
+
+    <div id='main'>
+      <div style="display: table-row;">
+        <div class="direction">
+          Название<br> колеса: <input type="text" id="inpNameRing" maxlength="28" onKeyUp="writeNameRing()"> <br><br>
+          Ваше имя: <input type="text" id="name" maxlength="18" onKeyUp="writeName()"> <br><br>
+
+          <i> Выберите одно из заготовленных колес баланса </i> <br>
+          <select id="type-wheel" onChange="changeType()" class="combobox" name="type" style="width:245px;">
+            <option value="aa"> </option>
+            <option>Колесо Жизненного Баланса</option>
+          </select>
+          <br><br><br>
+          <i>Или создайте свое:</i> <br><br>
+
+          Количество секторов:
+          <select id="count-sectors" onChange="changeCount()" class="combobox" name="count" style="width:50px;">
+            <option value="grp4">4</option>
+            <option value="grp6">6</option>
+            <option value="grp8">8</option>
+            <option value="grp10">10</option>
+            <option value="grp12">12</option>
+          </select>
+          <br><br>
+
+
+          <!--двухколоночная таблица с секторами-->
+          <div class="sectors-tabl">
+            <div class="st-row">
+              <div class="st-col-num">№</div>
+              <div class="st-col-left"> Названия секторов: </div>
+              <div class="st-col-right"> Баллы: </div>
+            </div>
+            <br><br>
+
+            <div id="st-row1" class="grp4 grp6 grp8 grp10 grp12">
+              <div class="st-col-num">1</div>
+              <div class="st-col-left"> <input type="text" id="txt_row1" maxlength="20" onKeyUp="txtOut(1)" /> </div>
+              <div class="st-col-right">
+                <input id="es1" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row2" class="grp4 grp6 grp8 grp10 grp12">
+              <div class="st-col-num">2</div>
+              <div class="st-col-left"> <input type="text" id="txt_row2" maxlength="20" onKeyUp="txtOut(2)" /> </div>
+              <div class="st-col-right">
+                <input id="es2" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row3" class="grp4 grp6 grp8 grp10 grp12">
+              <div class="st-col-num">3</div>
+              <div class="st-col-left"> <input type="text" id="txt_row3" maxlength="20" onKeyUp="txtOut(3)" /> </div>
+              <div class="st-col-right">
+                <input id="es3" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row4" class="grp4 grp6 grp8 grp10 grp12">
+              <div class="st-col-num">4</div>
+              <div class="st-col-left"> <input type="text" id="txt_row4" maxlength="20" onKeyUp="txtOut(4)" /> </div>
+              <div class="st-col-right">
+                <input id="es4" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row5" class="grp6 grp8 grp10 grp12">
+              <div class="st-col-num">5</div>
+              <div class="st-col-left"> <input type="text" id="txt_row5" maxlength="20" onKeyUp="txtOut(5)" /> </div>
+              <div class="st-col-right">
+                <input id="es5" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row6" class="grp6 grp8 grp10 grp12">
+              <div class="st-col-num">6</div>
+              <div class="st-col-left"> <input type="text" id="txt_row6" maxlength="20" onKeyUp="txtOut(6)" /> </div>
+              <div class="st-col-right">
+                <input id="es6" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row7" class="grp8 grp10 grp12">
+              <div class="st-col-num">7</div>
+              <div class="st-col-left"> <input type="text" id="txt_row7" maxlength="20" onKeyUp="txtOut(7)" /> </div>
+              <div class="st-col-right">
+                <input id="es7" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row8" class="grp8 grp10 grp12">
+              <div class="st-col-num">8</div>
+              <div class="st-col-left"> <input type="text" id="txt_row8" maxlength="20" onKeyUp="txtOut(8)" /> </div>
+              <div class="st-col-right">
+                <input id="es8" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row9" class="grp10 grp12">
+              <div class="st-col-num">9</div>
+              <div class="st-col-left"> <input type="text" id="txt_row9" maxlength="20" onKeyUp="txtOut(9)" /> </div>
+              <div class="st-col-right">
+                <input id="es9" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row10" class="grp10 grp12">
+              <div class="st-col-num">10</div>
+              <div class="st-col-left"> <input type="text" id="txt_row10" maxlength="20" onKeyUp="txtOut(10)" /> </div>
+              <div class="st-col-right">
+                <input id="es10" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row11" class="grp12">
+              <div class="st-col-num">11</div>
+              <div class="st-col-left"> <input type="text" id="txt_row11" maxlength="20" onKeyUp="txtOut(11)" /> </div>
+              <div class="st-col-right">
+                <input id="es11" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+            <br><br>
+            <div id="st-row12" class="grp12">
+              <div class="st-col-num">12</div>
+              <div class="st-col-left"> <input type="text" id="txt_row12" maxlength="20" onKeyUp="txtOut(12)" /> </div>
+              <div class="st-col-right">
+                <input id="es12" class="easyui-slider" style="width:115px"
+                  data-options="showTip:true,min:1,max:10,step:1">
+              </div>
+            </div>
+
+          </div>
+          <!--/двухколоночная таблица с секторами-->
+        </div>
+
+        <div class="diagram">
+          <canvas id="id_cv" width="300" height="680"> </canvas>
+
+          <div style="padding-top: 10px;">
+            <a id="download" class="btn" href="index.html#" download="колесо жизни.png"
+              title="Загрузка изображения">Скачать</a>
+            <button class="btn" onClick="print();" style="margin-left: 30px;">Печатать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    createDiagram();
+  </script>
+</body>
+
+</html>

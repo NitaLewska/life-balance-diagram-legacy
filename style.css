@@ -1,0 +1,186 @@
+﻿* {
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: Arial, 'sans-serif';
+  padding: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 600px;
+  font-size: 16px;
+}
+
+.brown {
+  color: brown;
+}
+
+.title {
+  font-family: "RobotoCondensedLight";
+  padding: 10px 0 10px;
+  text-align: center;
+  letter-spacing: 1em;
+}
+
+.title h1 {
+  display: block;
+  height: 30px;
+  font-size: 26px;
+  letter-spacing: .1em;
+}
+
+#main {
+  width: 100%;
+  display: table;
+}
+
+#name,
+#inpNameRing {
+  float: right;
+}
+
+#inpNameRing {
+  width: 190px;
+}
+
+
+#main .direction,
+#main .diagram {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: top;
+  padding: 10px;
+}
+
+
+#main .direction {
+  width: 57%;
+  background-color: #eaeaea;
+  font-size: 16px;
+}
+
+#wheel-type {
+  float: right;
+  width: 230px;
+}
+
+#count-sectors {
+  width: 50px;
+}
+
+.combobox {
+  font-size: 18px;
+  border-radius: 6px;
+  border: 2px solid #5ab4fc;
+  float: right;
+}
+
+
+input[type='text'] {
+  border-radius: 4px;
+  border: 1px solid #5ab4fc;
+}
+
+#st-row1,
+#st-row2,
+#st-row3,
+#st-row4,
+#st-row5,
+#st-row6,
+#st-row7,
+#st-row8,
+#st-row9,
+#st-row10,
+#st-row11,
+#st-row12 {
+  display: none;
+}
+
+#main .diagram {
+  width: 45%;
+  background-color: #eaeaea;
+}
+
+canvas {
+  border: 1px gray solid;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+
+.sectors-tabl {
+  padding: 0;
+  list-style: none;
+}
+
+.st-col-num {
+  float: left;
+  width: 10%;
+}
+
+.st-col-left {
+  float: left;
+  width: 42%;
+}
+
+.st-col-left input {
+  width: 95px;
+}
+
+
+.st-col-right {
+  float: left;
+  width: 45%;
+  margin-left: 5px;
+}
+
+
+.textbox .textbox-text {
+  font-size: 20px;
+  height: 30px;
+  margin-top: -8px;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 16px;
+  background-color: #cacece;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+  text-decoration: none;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 2px;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn:hover {
+  background-color: #afe7fe;
+}
+
+.btn:active {
+  background-color: #4fc9fd;
+}
+
+
+.footer {
+  padding: 20px;
+  background-image: url('images/bg-pattern.png');
+}
+
+@media print {
+  body {
+    visibility: hidden;
+  }
+  canvas {
+    position: absolute;
+    left: 0;
+  }
+  #id_cv {
+    visibility: visible;
+  }
+}
