@@ -13,7 +13,7 @@ var arr_txtrow1 = ['Здоровье','Отношения','Окружение',
 $(document).ready(function() {
   ctx = document.getElementById("id_cv").getContext("2d");    
 
-  changeCount();
+  
   //обработка перемещения слайдера
   $('.easyui-slider').slider({
     onSlideEnd:function(){
